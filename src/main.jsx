@@ -1,0 +1,47 @@
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import Home from "./Home.jsx";
+
+
+
+import Doctors from "./pages/Doctors.jsx";
+import Hospital from "./pages/Hospital.jsx";
+import Ambulance from "./pages/Ambulance.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    children: [
+      {
+        path: "/doctors",
+        element: <Doctors />,
+      },
+
+      {
+        path: "/hospital",
+        element: <Hospital />,
+      },
+      {
+        path: "/ambulance",
+        element: <Ambulance/>,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard/>,
+      },
+    ],
+  },
+]);
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <RouterProvider router={router}>
+      <App />
+    </RouterProvider>
+  </StrictMode>
+);
