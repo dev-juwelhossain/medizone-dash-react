@@ -34,6 +34,7 @@ const Doctors = () => {
                             placeholder="John Doe"
                             aria-label="John Doe"
                             aria-describedby="basic-icon-default-fullname2"
+                            name="name"
                           />
                         </div>
                       </div>
@@ -61,6 +62,7 @@ const Doctors = () => {
                             placeholder="e.g. MBBS"
                             aria-label="e.g. MBBS"
                             aria-describedby="basic-icon-default-fullname2"
+                            name="degree"
                           />
                         </div>
                       </div>
@@ -88,6 +90,7 @@ const Doctors = () => {
                             placeholder="e.g. Medicine"
                             aria-label="e.g. Medicine"
                             aria-describedby="basic-icon-default-fullname2"
+                            name="specialized"
                           />
                         </div>
                       </div>
@@ -115,6 +118,7 @@ const Doctors = () => {
                             placeholder="e.g. 10 Years"
                             aria-label="e.g. 10 Years"
                             aria-describedby="basic-icon-default-fullname2"
+                            name="experience"
                           />
                         </div>
                       </div>
@@ -142,6 +146,7 @@ const Doctors = () => {
                             placeholder="ACME Inc."
                             aria-label="ACME Inc."
                             aria-describedby="basic-icon-default-company2"
+                            name="hospital"
                           />
                         </div>
                       </div>
@@ -169,6 +174,7 @@ const Doctors = () => {
                             placeholder="Sat-Thu"
                             aria-label="Sat-Thu"
                             aria-describedby="basic-icon-default-company2"
+                            name="appointment_time"
                           />
                         </div>
                       </div>
@@ -193,6 +199,7 @@ const Doctors = () => {
                             placeholder="Rangpur Sadar"
                             aria-label="Rangpur Sadar"
                             aria-describedby="basic-icon-default-email2"
+                            name="address"
                           />
                         </div>
                       </div>
@@ -220,6 +227,7 @@ const Doctors = () => {
                             placeholder="৳৫০০"
                             aria-label="৳৫০০"
                             aria-describedby="basic-icon-default-phone2"
+                            name="consultation_fee"
                           />
                         </div>
                       </div>
@@ -247,6 +255,7 @@ const Doctors = () => {
                             placeholder="+880 1799 8941"
                             aria-label="+880 1799 8941"
                             aria-describedby="basic-icon-default-phone2"
+                            name="contact"
                           />
                         </div>
                       </div>
@@ -273,91 +282,36 @@ const Doctors = () => {
                             placeholder="Write About Doctor"
                             aria-label=""
                             aria-describedby="basic-icon-default-message2"
+                            name="abount_doctor"
                           ></textarea>
                         </div>
                       </div>
                     </div>
 
-                    <div className="row justify-content-end mb-2 mt-2">
+                    <div className="row mb-2 mt-2">
                       <label
                         className="col-sm-2 col-form-label"
                         htmlFor="basic-icon-default-fullname"
                       >
                         Doctor Catagory
                       </label>
-                      <div className="dropdown col-sm-10">
-                        <a
-                          className="btn btn-secondary dropdown-toggle"
-                          href="#"
-                          role="button"
-                          id="dropdownMenuLink"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          Category
-                        </a>
-
-                        <ul
-                          className="dropdown-menu"
-                          aria-labelledby="dropdownMenuLink"
-                        >
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Medicine
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Cardiology
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Neurologist
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Obstetrics and gynaecology
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Dermatologist
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Oncologist
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Psychiatrist
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Gastroenterologist
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Pediatricians
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Dentist
-                            </a>
-                          </li>
-                          <li>
-                            <a className="dropdown-item" href="#">
-                              Surgeon
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
+                      <select className="form-control row col-sm-10" name="doctors_cat" id="doctors_cat">
+                        <option value="Medicine">Medicine</option>
+                        <option value="Neurology">Neurology</option>
+                        <option value="Eurology">Eurology</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Gastroenterology">Gastroenterology</option>
+                        <option value="Nephorology">Nephorology</option>
+                        <option value="Physiotherapy">Physiotherapy</option>
+                        <option value="Gynecology">Gynecology</option>
+                        <option value="Obsetetrics">Obstetrics</option>
+                        <option value="Oncology">Oncology</option>
+                        <option value="Pediatrics">Pediatrics</option>
+                        <option value="Orthopedics">Orthopedics</option>
+                        <option value="Ophthalmology">Ophthalmology</option>
+                        <option value="Nephrology">Nephrology</option>
+                      </select>
+                      
                     </div>
 
                     <div className="row mt-5">
@@ -385,6 +339,7 @@ const Doctors = () => {
                             placeholder="ACME Inc."
                             aria-label="ACME Inc."
                             aria-describedby="basic-icon-default-company2"
+                            name="e_hospital"
                           />
                         </div>
                       </div>
@@ -411,6 +366,7 @@ const Doctors = () => {
                             placeholder="e.g. MBBS"
                             aria-label="e.g. MBBS"
                             aria-describedby="basic-icon-default-fullname2"
+                            name="e_degree"
                           />
                         </div>
                       </div>
@@ -437,6 +393,7 @@ const Doctors = () => {
                             placeholder="e.g. 10 Years"
                             aria-label="e.g. 10 Years"
                             aria-describedby="basic-icon-default-fullname2"
+                            name="e_experience_year"
                           />
                         </div>
                       </div>
