@@ -290,12 +290,12 @@ const Doctors = () => {
 
                     <div className="row mb-2 mt-2">
                       <label
-                        className="col-sm-2 col-form-label"
+                        className=" row col-sm-2 col-form-label"
                         htmlFor="basic-icon-default-fullname"
                       >
                         Doctor Catagory
                       </label>
-                      <select className="form-control row col-sm-10" name="doctors_cat" id="doctors_cat">
+                      <select className="form-control " name="doctors_cat" id="doctors_cat">
                         <option value="Medicine">Medicine</option>
                         <option value="Neurology">Neurology</option>
                         <option value="Eurology">Eurology</option>
