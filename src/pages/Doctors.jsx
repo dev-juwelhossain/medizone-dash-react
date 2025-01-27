@@ -263,7 +263,7 @@ const submitData = (data) =>{
                           </span>
                           <input
                              {...register('consultation_fee', { required: true })}
-                            type="number"
+                            type="text"
                             id="basic-icon-default-phone"
                             className="form-control phone-mask"
                             placeholder="৳৫০০"
