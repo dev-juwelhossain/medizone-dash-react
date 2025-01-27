@@ -57,9 +57,9 @@ const Sidebar = () => {
                 <li className="menu-item">
                   <NavLink to="./ambulance" className="menu-link">
                     <i
-                      className="bx bxs-ambulance mr-3  " /* style='color:#697a8d; margin-right: 10px;' */
+                      className="bx bxs-ambulance menu icon tf-icons" 
                     ></i>
-                    <div data-i18n="Analytics">Ambulance</div>
+                    <div data-i18n="Analytics" className="">Ambulance</div>
                   </NavLink>
                 </li>
 
