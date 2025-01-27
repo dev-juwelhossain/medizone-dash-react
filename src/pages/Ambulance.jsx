@@ -1,4 +1,27 @@
+import axios from 'axios';
+import { useForm } from 'react-hook-form';
+
 const Ambulance = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const submitData = (data) =>{
+    axios.post('http://127.0.0.1:8000/api/create_ambulance', {
+      name:data.name,
+      location:data.location,
+      phone_number:data.phone_number,
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    
+  }
   return (
     <div>
       <div className="content-wrapper">
@@ -11,7 +34,7 @@ const Ambulance = () => {
                   <small className="text-muted float-end">Medizone</small>
                 </div>
                 <div className="card-body">
-                  <form>
+                  <form onSubmit={handleSubmit(submitData)}>
                     <div className="input-group mb-3">
                       <label
                         className="col-sm-2 col-form-label"
@@ -20,6 +43,7 @@ const Ambulance = () => {
                         Ambulance Picture
                       </label>
                       <input
+                      {...register('file', { required: true })}
                         type="file"
                         className="form-control"
                         id="inputGroupFile02"
@@ -49,6 +73,7 @@ const Ambulance = () => {
                             <i className="bx bx-car"></i>
                           </span>
                           <input
+                           {...register('name', { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
@@ -77,6 +102,7 @@ const Ambulance = () => {
                             <i className="bx bx-pin"></i>
                           </span>
                           <input
+                          {...register('location', { required: true })}
                             type="text"
                             id="basic-icon-default-company"
                             className="form-control"
@@ -105,6 +131,7 @@ const Ambulance = () => {
                             <i className="bx bx-phone"></i>
                           </span>
                           <input
+                          {...register('phone_number', { required: true })}
                             type="text"
                             id="basic-icon-default-phone"
                             className="form-control phone-mask"

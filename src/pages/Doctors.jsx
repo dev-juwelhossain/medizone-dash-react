@@ -1,4 +1,38 @@
+import axios from "axios";
+import { useForm } from "react-hook-form";
 const Doctors = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: {errors},
+} = useForm();
+
+const submitData = (data) =>{
+  axios.post('http://127.0.0.1:8000/api/create_doctor', {
+    name:data.name,
+    degree:data.degree,
+    specialized:data.specialized,
+    experience:data.experience,
+    hospital:data.hospital,
+    appointment_time:data.appointment_time,
+    address:data.address,
+    consultation_fee:data.consultation_fee,
+    contact:data.contact,
+    abount_doctor:data.abount_doctor,
+    doctors_cat:data.doctors_cat,
+    e_hospital:data.e_hospital,
+    e_degree:data.e_degree,
+    e_experience_year:data.e_experience_year,
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  
+}
+
   return (
     <div>
       <div className="content-wrapper">
@@ -11,7 +45,7 @@ const Doctors = () => {
                   <small className="text-muted float-end">Medizone</small>
                 </div>
                 <div className="card-body">
-                  <form>
+                  <form onSubmit={handleSubmit(submitData)}>
                     <div className="row mb-3">
                       <label
                         className="col-sm-2 col-form-label"
@@ -28,6 +62,7 @@ const Doctors = () => {
                             <i className="bx bx-user"></i>
                           </span>
                           <input
+                           {...register('name', { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
@@ -56,6 +91,7 @@ const Doctors = () => {
                             <i className="bx bx-certification"></i>
                           </span>
                           <input
+                           {...register('degree', { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
@@ -84,6 +120,7 @@ const Doctors = () => {
                             <i className="bx bx-medal"></i>
                           </span>
                           <input
+                           {...register('specialized', { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
@@ -112,6 +149,7 @@ const Doctors = () => {
                             <i className="bx bx-award"></i>
                           </span>
                           <input
+                           {...register('experience', { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
@@ -140,6 +178,7 @@ const Doctors = () => {
                             <i className="bx bx-buildings"></i>
                           </span>
                           <input
+                           {...register('hospital', { required: true })}
                             type="text"
                             id="basic-icon-default-company"
                             className="form-control"
@@ -168,6 +207,7 @@ const Doctors = () => {
                             <i className="bx bx-time"></i>
                           </span>
                           <input
+                           {...register('appointment_time', { required: true })}
                             type="text"
                             id="basic-icon-default-company"
                             className="form-control"
@@ -193,6 +233,7 @@ const Doctors = () => {
                             <i className="bx bx-pin"></i>
                           </span>
                           <input
+                           {...register('address', { required: true })}
                             type="text"
                             id="basic-icon-default-email"
                             className="form-control"
@@ -221,7 +262,8 @@ const Doctors = () => {
                             <i className="bx bx-dollar"></i>
                           </span>
                           <input
-                            type="text"
+                             {...register('consultation_fee', { required: true })}
+                            type="number"
                             id="basic-icon-default-phone"
                             className="form-control phone-mask"
                             placeholder="৳৫০০"
@@ -249,6 +291,7 @@ const Doctors = () => {
                             <i className="bx bx-phone"></i>
                           </span>
                           <input
+                           {...register('contact', { required: true })}
                             type="text"
                             id="basic-icon-default-phone"
                             className="form-control phone-mask"
@@ -277,6 +320,7 @@ const Doctors = () => {
                             <i className="bx bx-message-dots"></i>
                           </span>
                           <textarea
+                           {...register('abount_doctor', { required: true })}
                             id="basic-icon-default-message"
                             className="form-control"
                             placeholder="Write About Doctor"
@@ -295,7 +339,9 @@ const Doctors = () => {
                       >
                         Doctor Catagory
                       </label>
-                      <select className="form-control " name="doctors_cat" id="doctors_cat">
+                      <select
+                       {...register('doctor_cat', { required: true })}
+                      className="form-control " name="doctors_cat" id="doctors_cat">
                         <option value="Medicine">Medicine</option>
                         <option value="Neurology">Neurology</option>
                         <option value="Eurology">Eurology</option>
@@ -333,6 +379,7 @@ const Doctors = () => {
                             <i className="bx bx-buildings"></i>
                           </span>
                           <input
+                           {...register('e_hospital', { required: true })}
                             type="text"
                             id="basic-icon-default-company"
                             className="form-control"
@@ -360,6 +407,7 @@ const Doctors = () => {
                             <i className="bx bx-certification"></i>
                           </span>
                           <input
+                           {...register('e_degree', { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
@@ -387,6 +435,7 @@ const Doctors = () => {
                             <i className="bx bx-award"></i>
                           </span>
                           <input
+                           {...register('e_experience_year', { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
