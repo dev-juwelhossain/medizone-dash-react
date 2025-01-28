@@ -1,37 +1,55 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 const Doctors = () => {
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const {
     register,
     handleSubmit,
-    formState: {errors},
-} = useForm();
+    formState: { errors },
+  } = useForm();
 
-const submitData = (data) =>{
-  axios.post('http://127.0.0.1:8000/api/create_doctor', {
-    name:data.name,
-    degree:data.degree,
-    specialized:data.specialized,
-    experience:data.experience,
-    hospital:data.hospital,
-    appointment_time:data.appointment_time,
-    address:data.address,
-    consultation_fee:data.consultation_fee,
-    contact:data.contact,
-    abount_doctor:data.abount_doctor,
-    doctors_cat:data.doctors_cat,
-    e_hospital:data.e_hospital,
-    e_degree:data.e_degree,
-    e_experience_year:data.e_experience_year,
-  })
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-  
-}
+  const submitData = (data) => {
+    console.log(data);
+
+    const formData = new FormData();
+
+    // Add the fields to the formData object
+    formData.append("name", data.name);
+    formData.append("degree", data.degree);
+    formData.append("specialized", data.specialized);
+    formData.append("experience", data.experience);
+    formData.append("hospital", data.hospital);
+    formData.append("appointment_time", data.appointment_time);
+    formData.append("address", data.address);
+    formData.append("consultation_fee", data.consultation_fee);
+    formData.append("contact", data.contact);
+    formData.append("abount_doctor", data.abount_doctor);
+    formData.append("doctors_cat", data.doctors_cat);
+    formData.append("e_hospital", data.e_hospital);
+    formData.append("e_degree", data.e_degree);
+    formData.append("e_experience_year", data.e_experience_year);
+
+    // Assuming data.ambulance_picture or an image exists, you can append that too (if needed)
+    if (data.doctor_img) {
+      formData.append("doctor_img", data.doctor_img[0]);
+    }
+
+    axios
+      .post(`${BASE_URL}/create_doctor`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data", // or let axios handle it automatically
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        toast.success("Added Successfully");
+      })
+      .catch(function (error) {
+        console.log(error);
+        toast.error("Something Went Wrong");
+      });
+  };
 
   return (
     <div>
@@ -51,10 +69,36 @@ const submitData = (data) =>{
                         className="col-sm-2 col-form-label"
                         htmlFor="basic-icon-default-fullname"
                       >
-                        Name
+                        Doctor Picture
                       </label>
                       <div className="col-sm-10">
-                        <div className="input-group input-group-merge">
+                        <div className="input-group mb-3">
+                          <input
+                            {...register("doctor_img", {
+                              required: true,
+                            })}
+                            type="file"
+                            className="form-control"
+                            id="inputGroupFile02"
+                            name="doctor_img"
+                          />
+                          <label
+                            className="input-group-text"
+                            htmlFor="inputGroupFile02"
+                          >
+                            Upload
+                          </label>
+                        </div>
+
+                        
+                      </div>
+                      <div className=" input-group input-group-merge">
+                          <label
+                            className="col-sm-2 col-form-label"
+                            htmlFor="basic-icon-default-fullname"
+                          >
+                            Name
+                          </label>
                           <span
                             id="basic-icon-default-fullname2"
                             className="input-group-text"
@@ -62,7 +106,7 @@ const submitData = (data) =>{
                             <i className="bx bx-user"></i>
                           </span>
                           <input
-                           {...register('name', { required: true })}
+                            {...register("name", { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
@@ -72,7 +116,6 @@ const submitData = (data) =>{
                             name="name"
                           />
                         </div>
-                      </div>
                     </div>
 
                     <div className="row mb-3">
@@ -91,7 +134,7 @@ const submitData = (data) =>{
                             <i className="bx bx-certification"></i>
                           </span>
                           <input
-                           {...register('degree', { required: true })}
+                            {...register("degree", { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
@@ -120,7 +163,7 @@ const submitData = (data) =>{
                             <i className="bx bx-medal"></i>
                           </span>
                           <input
-                           {...register('specialized', { required: true })}
+                            {...register("specialized", { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
@@ -149,7 +192,7 @@ const submitData = (data) =>{
                             <i className="bx bx-award"></i>
                           </span>
                           <input
-                           {...register('experience', { required: true })}
+                            {...register("experience", { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
@@ -178,7 +221,7 @@ const submitData = (data) =>{
                             <i className="bx bx-buildings"></i>
                           </span>
                           <input
-                           {...register('hospital', { required: true })}
+                            {...register("hospital", { required: true })}
                             type="text"
                             id="basic-icon-default-company"
                             className="form-control"
@@ -207,7 +250,9 @@ const submitData = (data) =>{
                             <i className="bx bx-time"></i>
                           </span>
                           <input
-                           {...register('appointment_time', { required: true })}
+                            {...register("appointment_time", {
+                              required: true,
+                            })}
                             type="text"
                             id="basic-icon-default-company"
                             className="form-control"
@@ -233,7 +278,7 @@ const submitData = (data) =>{
                             <i className="bx bx-pin"></i>
                           </span>
                           <input
-                           {...register('address', { required: true })}
+                            {...register("address", { required: true })}
                             type="text"
                             id="basic-icon-default-email"
                             className="form-control"
@@ -262,7 +307,9 @@ const submitData = (data) =>{
                             <i className="bx bx-dollar"></i>
                           </span>
                           <input
-                             {...register('consultation_fee', { required: true })}
+                            {...register("consultation_fee", {
+                              required: true,
+                            })}
                             type="text"
                             id="basic-icon-default-phone"
                             className="form-control phone-mask"
@@ -291,7 +338,7 @@ const submitData = (data) =>{
                             <i className="bx bx-phone"></i>
                           </span>
                           <input
-                           {...register('contact', { required: true })}
+                            {...register("contact", { required: true })}
                             type="text"
                             id="basic-icon-default-phone"
                             className="form-control phone-mask"
@@ -320,7 +367,7 @@ const submitData = (data) =>{
                             <i className="bx bx-message-dots"></i>
                           </span>
                           <textarea
-                           {...register('abount_doctor', { required: true })}
+                            {...register("abount_doctor", { required: true })}
                             id="basic-icon-default-message"
                             className="form-control"
                             placeholder="Write About Doctor"
@@ -340,8 +387,11 @@ const submitData = (data) =>{
                         Doctor Catagory
                       </label>
                       <select
-                       {...register('doctor_cat', { required: true })}
-                      className="form-control " name="doctors_cat" id="doctors_cat">
+                        {...register("doctors_cat", { required: true })}
+                        className="form-control "
+                        name="doctors_cat"
+                        id="doctors_cat"
+                      >
                         <option value="Medicine">Medicine</option>
                         <option value="Neurology">Neurology</option>
                         <option value="Eurology">Eurology</option>
@@ -357,7 +407,6 @@ const submitData = (data) =>{
                         <option value="Ophthalmology">Ophthalmology</option>
                         <option value="Nephrology">Nephrology</option>
                       </select>
-                      
                     </div>
 
                     <div className="row mt-5">
@@ -379,7 +428,7 @@ const submitData = (data) =>{
                             <i className="bx bx-buildings"></i>
                           </span>
                           <input
-                           {...register('e_hospital', { required: true })}
+                            {...register("e_hospital", { required: true })}
                             type="text"
                             id="basic-icon-default-company"
                             className="form-control"
@@ -407,7 +456,7 @@ const submitData = (data) =>{
                             <i className="bx bx-certification"></i>
                           </span>
                           <input
-                           {...register('e_degree', { required: true })}
+                            {...register("e_degree", { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
@@ -435,7 +484,9 @@ const submitData = (data) =>{
                             <i className="bx bx-award"></i>
                           </span>
                           <input
-                           {...register('e_experience_year', { required: true })}
+                            {...register("e_experience_year", {
+                              required: true,
+                            })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"

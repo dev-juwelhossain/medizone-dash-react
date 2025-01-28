@@ -1,28 +1,44 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 const Hospital = () => {
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const {
-     register,
-     handleSubmit,
-     formState: { errors },
-   } = useForm();
-   const submitData = (data) =>{
-    axios.post('http://127.0.0.1:8000/api/create_hospital', {
-      hospital_picture:data.hospital_picture,
-      name:data.name,
-      location:data.location,
-      email:data.email,
-      phone_number:data.phone_number,
-      about_hospital:data.about_hospital,
-      services:data.services,
-      
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });}
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  // submit data
+  const submitData = (data) => {
+    console.log(data);
+  
+    const formData = new FormData();
+  
+    // Add the fields to the formData object
+    formData.append("hospital_picture", data.hospital_picture[0]);  // Assuming it's an array or file list
+    formData.append("name", data.name);
+    formData.append("location", data.location);
+    formData.append("email", data.email);
+    formData.append("phone_number", data.phone_number);
+    formData.append("about_hospital", data.about_hospital);
+    formData.append("services", data.services);
+  
+    axios
+      .post(`${BASE_URL}/create_hospital`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",  // Ensure axios handles the form data correctly
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        toast.success('Hospital added successfully');
+      })
+      .catch(function (error) {
+        console.log(error);
+        toast.error('Something went wrong');
+      });
+  };
+  
   return (
     <div className="content-wrapper">
       <div className="container-xxl flex-grow-1 container-p-y">
@@ -43,7 +59,7 @@ const Hospital = () => {
                       Hospital Picture
                     </label>
                     <input
-                    {...register('file', { required: true })}
+                      {...register("hospital_picture", { required: true })}
                       type="file"
                       className="form-control"
                       id="inputGroupFile02"
@@ -73,7 +89,7 @@ const Hospital = () => {
                           <i className="bx bx-building-house"></i>
                         </span>
                         <input
-                        {...register('name', { required: true })}
+                          {...register("name", { required: true })}
                           type="text"
                           className="form-control"
                           id="basic-icon-default-fullname"
@@ -102,7 +118,7 @@ const Hospital = () => {
                           <i className="bx bx-pin"></i>
                         </span>
                         <input
-                        {...register('location', { required: true })}
+                          {...register("location", { required: true })}
                           type="text"
                           id="basic-icon-default-company"
                           className="form-control"
@@ -128,7 +144,7 @@ const Hospital = () => {
                           <i className="bx bx-envelope"></i>
                         </span>
                         <input
-                        {...register('email', { required: true })}
+                          {...register("email", { required: true })}
                           type="text"
                           id="basic-icon-default-email"
                           className="form-control"
@@ -166,7 +182,7 @@ const Hospital = () => {
                           <i className="bx bx-phone"></i>
                         </span>
                         <input
-                        {...register('phone_number', { required: true })}
+                          {...register("phone_number", { required: true })}
                           type="text"
                           id="basic-icon-default-phone"
                           className="form-control phone-mask"
@@ -195,7 +211,7 @@ const Hospital = () => {
                           <i className="bx bx-comment"></i>
                         </span>
                         <textarea
-                        {...register('about_hospital', { required: true })}
+                          {...register("about_hospital", { required: true })}
                           id="basic-icon-default-message"
                           className="form-control"
                           placeholder="Hi, Do you have a moment to talk Joe?"
@@ -223,7 +239,7 @@ const Hospital = () => {
                           <i className="bx bx-comment"></i>
                         </span>
                         <textarea
-                        {...register('services', { required: true })}
+                          {...register("services", { required: true })}
                           id="basic-icon-default-message"
                           className="form-control"
                           placeholder="Hospital's Services"

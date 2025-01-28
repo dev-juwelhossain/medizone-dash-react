@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import Sidebar from "./component/Sidebar";
 import TopNav from "./component/TopNav";
+import { Toaster } from "react-hot-toast";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
         </div>
 
         <div className="layout-overlay layout-menu-toggle"></div>
+        <Toaster />
       </div>
     </div>
   );

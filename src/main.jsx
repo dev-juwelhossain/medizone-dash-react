@@ -11,6 +11,7 @@ import Doctors from "./pages/Doctors.jsx";
 import Hospital from "./pages/Hospital.jsx";
 import Ambulance from "./pages/Ambulance.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router}>
       <App />
+      <Toaster />
     </RouterProvider>
   </StrictMode>
 );

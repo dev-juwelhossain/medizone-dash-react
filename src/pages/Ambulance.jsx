@@ -1,27 +1,40 @@
-import axios from 'axios';
-import { useForm } from 'react-hook-form';
+import axios from "axios";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const Ambulance = () => {
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const submitData = (data) =>{
-    axios.post('http://127.0.0.1:8000/api/create_ambulance', {
-      name:data.name,
-      location:data.location,
-      phone_number:data.phone_number,
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-    
-  }
+  const submitData = (data) => {
+    console.log(data);
+
+    const formData = new FormData();
+    formData.append("ambulance_picture", data.ambulance_picture[0]);
+    formData.append("name", data.name);
+    formData.append("location", data.location);
+    formData.append("phone_number", data.phone_number);
+
+    axios
+      .post(`${BASE_URL}/create_ambulance`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data", // or allow axios to set it automatically
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        toast.success('Added Successfully');
+      })
+      .catch(function (error) {
+        console.log(error);
+        toast.success('Something Went Wrong');
+      });
+  };
+
   return (
     <div>
       <div className="content-wrapper">
@@ -43,7 +56,7 @@ const Ambulance = () => {
                         Ambulance Picture
                       </label>
                       <input
-                      {...register('file', { required: true })}
+                        {...register("ambulance_picture", { required: true })}
                         type="file"
                         className="form-control"
                         id="inputGroupFile02"
@@ -73,7 +86,7 @@ const Ambulance = () => {
                             <i className="bx bx-car"></i>
                           </span>
                           <input
-                           {...register('name', { required: true })}
+                            {...register("name", { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
@@ -102,7 +115,7 @@ const Ambulance = () => {
                             <i className="bx bx-pin"></i>
                           </span>
                           <input
-                          {...register('location', { required: true })}
+                            {...register("location", { required: true })}
                             type="text"
                             id="basic-icon-default-company"
                             className="form-control"
@@ -131,7 +144,7 @@ const Ambulance = () => {
                             <i className="bx bx-phone"></i>
                           </span>
                           <input
-                          {...register('phone_number', { required: true })}
+                            {...register("phone_number", { required: true })}
                             type="text"
                             id="basic-icon-default-phone"
                             className="form-control phone-mask"
