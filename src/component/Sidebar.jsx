@@ -26,7 +26,7 @@ const Sidebar = () => {
               to="/dashboard"
               className="menu-link"
               style={({ isActive }) => ({
-                backgroundColor: isActive ? "#d3d3d3" : "transparent", // Active item background color
+                backgroundColor: isActive ? "#21dccc" : "transparent", // Active item background color
               })}
             >
               <i className="menu-icon tf-icons bx bx-home-circle"></i>
@@ -38,7 +38,7 @@ const Sidebar = () => {
               to="/doctors"
               className="menu-link"
               style={({ isActive }) => ({
-                backgroundColor: isActive ? "#d3d3d3" : "transparent", // Active item background color
+                backgroundColor: isActive ? "#21dccc" : "transparent", // Active item background color
               })}
             >
               <i className="menu-icon tf-icons bx bx-donate-heart"></i>
@@ -50,10 +50,10 @@ const Sidebar = () => {
               to="/singledoc"
               className="menu-link"
               style={({ isActive }) => ({
-                backgroundColor: isActive ? "#d3d3d3" : "transparent", // Active item background color
+                backgroundColor: isActive ? "#21dccc" : "transparent", // Active item background color
               })}
             >
-              <i className="menu-icon tf-icons bx bx-car"></i>
+              <i className="menu-icon tf-icons bx bx-donate-heart"></i>
               <div>Single Doctor</div>
             </NavLink>
           </li>
@@ -62,7 +62,7 @@ const Sidebar = () => {
               to="/hospital"
               className="menu-link"
               style={({ isActive }) => ({
-                backgroundColor: isActive ? "#d3d3d3" : "transparent", // Active item background color
+                backgroundColor: isActive ? "#21dccc" : "transparent", // Active item background color
               })}
             >
               <i className="menu-icon tf-icons bx bx-building-house"></i>
@@ -74,7 +74,7 @@ const Sidebar = () => {
               to="/ambulance"
               className="menu-link"
               style={({ isActive }) => ({
-                backgroundColor: isActive ? "#d3d3d3" : "transparent", // Active item background color
+                backgroundColor: isActive ? "#21dccc" : "transparent", // Active item background color
               })}
             >
               <i className="menu-icon tf-icons bx bx-car"></i>

@@ -85,7 +85,7 @@ const Ambulance = () => {
                             id="basic-icon-default-fullname2"
                             className="input-group-text"
                           >
-                            <i className="bx bx-car"></i>
+                            <i className="bx bx-user"></i>
                           </span>
                           <input
                             {...register("name", { required: true })}
@@ -107,6 +107,34 @@ const Ambulance = () => {
                         htmlFor="basic-icon-default-company"
                       >
                         Location
+                      </label>
+                      <div className="col-sm-10">
+                        <div className="input-group input-group-merge">
+                          <span
+                            id="basic-icon-default-company2"
+                            className="input-group-text"
+                          >
+                            <i className="bx bx-pin"></i>
+                          </span>
+                          <input
+                            {...register("location", { required: true })}
+                            type="text"
+                            id="basic-icon-default-company"
+                            className="form-control"
+                            placeholder="Type Ambulance Address"
+                            aria-label="Type Ambulance Address"
+                            aria-describedby="basic-icon-default-company2"
+                            name="location"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="row mb-3">
+                      <label
+                        className="col-sm-2 col-form-label"
+                        htmlFor="basic-icon-default-company"
+                      >
+                        Associate Hospital
                       </label>
                       <div className="col-sm-10">
                         <div className="input-group input-group-merge">
@@ -170,7 +198,7 @@ const Ambulance = () => {
                             id="basic-icon-default-company2"
                             className="input-group-text"
                           >
-                            <i className="bx bx-pin"></i>
+                            <i className="bx bx-certification"></i>
                           </span>
                           <input
                             {...register("location", { required: true })}
