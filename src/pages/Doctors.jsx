@@ -6,6 +6,7 @@ const Doctors = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -44,6 +45,7 @@ const Doctors = () => {
       .then(function (response) {
         console.log(response);
         toast.success("Added Successfully");
+        reset();
       })
       .catch(function (error) {
         console.log(error);

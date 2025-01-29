@@ -7,6 +7,7 @@ const Ambulance = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -28,6 +29,7 @@ const Ambulance = () => {
       .then(function (response) {
         console.log(response);
         toast.success('Added Successfully');
+        reset()
       })
       .catch(function (error) {
         console.log(error);
