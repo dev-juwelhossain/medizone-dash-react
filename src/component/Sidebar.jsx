@@ -7,7 +7,7 @@ const Sidebar = () => {
         <div className="app-brand demo">
           <NavLink to="/" className="app-brand-link">
             <span className="app-brand-logo demo">
-              <img width="180px" src="/public/medizone.jpeg" alt="" />
+              <img width="180px" src="/medizone.jpeg" alt="" />
             </span>
           </NavLink>
           <a
@@ -43,6 +43,18 @@ const Sidebar = () => {
             >
               <i className="menu-icon tf-icons bx bx-donate-heart"></i>
               <div>Doctor</div>
+            </NavLink>
+          </li>
+          <li className="menu-item">
+            <NavLink
+              to="/singledoc"
+              className="menu-link"
+              style={({ isActive }) => ({
+                backgroundColor: isActive ? "#d3d3d3" : "transparent", // Active item background color
+              })}
+            >
+              <i className="menu-icon tf-icons bx bx-car"></i>
+              <div>Single Doctor</div>
             </NavLink>
           </li>
           <li className="menu-item">

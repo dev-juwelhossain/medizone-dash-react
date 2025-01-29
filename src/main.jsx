@@ -12,6 +12,7 @@ import Hospital from "./pages/Hospital.jsx";
 import Ambulance from "./pages/Ambulance.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import { Toaster } from "react-hot-toast";
+import SingleDoc from "./pages/SingleDoc.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard/>,
+      },
+      {
+        path: "/singledoc",
+        element: <SingleDoc/>,
       },
     ],
   },
