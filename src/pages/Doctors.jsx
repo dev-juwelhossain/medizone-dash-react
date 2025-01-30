@@ -371,7 +371,7 @@ const Doctors = () => {
                           <textarea
                             {...register("abount_doctor", { required: true })}
                             id="basic-icon-default-message"
-                            className="form-control"
+                            className="form-control h-40"
                             placeholder="Write About Doctor"
                             aria-label=""
                             aria-describedby="basic-icon-default-message2"
