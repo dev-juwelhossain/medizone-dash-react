@@ -23,11 +23,8 @@ const Hospital = () => {
     formData.append("phone_number", data.phone_number);
     formData.append("about_hospital", data.about_hospital);
     formData.append("services", data.services);
-    
-    // Check if there are any errors in the form
-    for (let [key, value] of formData.entries()) {
-      console.log(key, value);
-    }
+   
+
 
     axios
       .post(`${BASE_URL}/create_hospital`, formData, {
@@ -38,7 +35,7 @@ const Hospital = () => {
       .then(function (response) {
         console.log(response);
         toast.success('Hospital added successfully');
-        reset();
+        
       })
       
   };

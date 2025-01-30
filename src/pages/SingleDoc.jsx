@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 const Ambulance = () => {
-  
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const {
     register,
     handleSubmit,
@@ -15,17 +15,17 @@ const Ambulance = () => {
     console.log(data);
 
     const formData = new FormData();
-    formData.append("ambulance_picture", data.ambulance_picture[0]);
-    formData.append("name", data.name);
-    formData.append("location", data.location);
-    formData.append("phone_number", data.phone_number);
-    
-    for (let [key, value] of formData.entries()) {
-      console.log(key, value);
-    }
+    formData.append("s_doc_picture", data.s_doc_picture[0]);
+    formData.append("s_doc_name", data.s_doc_name);
+    formData.append("s_doc_location", data.s_doc_location);
+    formData.append("s_doc_hospital", data.s_doc_hospital);
+    formData.append("s_doc_position", data.s_doc_position);
+    formData.append("s_doc_experience", data.s_doc_experience);
+    formData.append("s_doc_phonenumber", data.s_doc_phonenumber);
 
+   
     axios
-      .post(`http://127.0.0.1:8000/create_singledoc`, formData, {
+      .post(`${BASE_URL}/create_singledoc`, formData, {
         headers: {
           "Content-Type": "multipart/form-data", // or allow axios to set it automatically
         },
@@ -62,11 +62,11 @@ const Ambulance = () => {
                         Doctor Picture
                       </label>
                       <input
-                        {...register("ambulance_picture", { required: true })}
+                        {...register("s_doc_picture", { required: true })}
                         type="file"
                         className="form-control"
                         id="inputGroupFile02"
-                        name="ambulance_picture"
+                        name="s_doc_picture"
                       />
                       <label
                         className="input-group-text"
@@ -92,14 +92,14 @@ const Ambulance = () => {
                             <i className="bx bx-user"></i>
                           </span>
                           <input
-                            {...register("name", { required: true })}
+                            {...register("s_doc_name", { required: true })}
                             type="text"
                             className="form-control"
                             id="basic-icon-default-fullname"
                             placeholder="Type ambulance name"
                             aria-label="Type Ambulance name"
                             aria-describedby="basic-icon-default-fullname2"
-                            name="name"
+                            name="s_doc_name"
                           />
                         </div>
                       </div>
@@ -121,14 +121,14 @@ const Ambulance = () => {
                             <i className="bx bx-pin"></i>
                           </span>
                           <input
-                            {...register("location", { required: true })}
+                            {...register("s_doc_location", { required: true })}
                             type="text"
                             id="basic-icon-default-company"
                             className="form-control"
                             placeholder="Type Ambulance Address"
                             aria-label="Type Ambulance Address"
                             aria-describedby="basic-icon-default-company2"
-                            name="location"
+                            name="s_doc_location"
                           />
                         </div>
                       </div>
@@ -149,14 +149,14 @@ const Ambulance = () => {
                             <i className="bx bx-pin"></i>
                           </span>
                           <input
-                            {...register("location", { required: true })}
+                            {...register("s_doc_hospital", { required: true })}
                             type="text"
                             id="basic-icon-default-company"
                             className="form-control"
                             placeholder="Type Ambulance Address"
                             aria-label="Type Ambulance Address"
                             aria-describedby="basic-icon-default-company2"
-                            name="location"
+                            name="s_doc_hospital"
                           />
                         </div>
                       </div>
@@ -177,14 +177,14 @@ const Ambulance = () => {
                             <i className="bx bx-pin"></i>
                           </span>
                           <input
-                            {...register("location", { required: true })}
+                            {...register("s_doc_position", { required: true })}
                             type="text"
                             id="basic-icon-default-company"
                             className="form-control"
                             placeholder="Type Ambulance Address"
                             aria-label="Type Ambulance Address"
                             aria-describedby="basic-icon-default-company2"
-                            name="location"
+                            name="s_doc_position"
                           />
                         </div>
                       </div>
@@ -205,14 +205,14 @@ const Ambulance = () => {
                             <i className="bx bx-certification"></i>
                           </span>
                           <input
-                            {...register("location", { required: true })}
+                            {...register("s_doc_experience", { required: true })}
                             type="text"
                             id="basic-icon-default-company"
                             className="form-control"
                             placeholder="Type Ambulance Address"
                             aria-label="Type Ambulance Address"
                             aria-describedby="basic-icon-default-company2"
-                            name="location"
+                            name="s_doc_experience"
                           />
                         </div>
                       </div>
@@ -234,14 +234,14 @@ const Ambulance = () => {
                             <i className="bx bx-phone"></i>
                           </span>
                           <input
-                            {...register("phone_number", { required: true })}
+                            {...register("s_doc_phonenumber", { required: true })}
                             type="text"
                             id="basic-icon-default-phone"
                             className="form-control phone-mask"
                             placeholder="658 799 8941"
                             aria-label="658 799 8941"
                             aria-describedby="basic-icon-default-phone2"
-                            name="phone_number"
+                            name="s_doc_phonenumber"
                           />
                         </div>
                       </div>
