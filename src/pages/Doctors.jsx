@@ -30,6 +30,9 @@ const Doctors = () => {
     formData.append("e_hospital", data.e_hospital);
     formData.append("e_degree", data.e_degree);
     formData.append("e_experience_year", data.e_experience_year);
+    for (let [key, value] of formData.entries()) {
+      console.log(key, value);
+    }
 
     // Assuming data.ambulance_picture or an image exists, you can append that too (if needed)
     if (data.doctor_img) {
@@ -37,7 +40,7 @@ const Doctors = () => {
     }
 
     axios
-      .post(`${BASE_URL}/create_doctor`, formData, {
+      .post(`${BASE_URL}api/create_doctor`, formData, {
         headers: {
           "Content-Type": "multipart/form-data", // or let axios handle it automatically
         },

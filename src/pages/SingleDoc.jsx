@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 const Ambulance = () => {
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  
   const {
     register,
     handleSubmit,
@@ -19,9 +19,13 @@ const Ambulance = () => {
     formData.append("name", data.name);
     formData.append("location", data.location);
     formData.append("phone_number", data.phone_number);
+    
+    for (let [key, value] of formData.entries()) {
+      console.log(key, value);
+    }
 
     axios
-      .post(`${BASE_URL}/create_ambulance`, formData, {
+      .post(`http://127.0.0.1:8000/create_singledoc`, formData, {
         headers: {
           "Content-Type": "multipart/form-data", // or allow axios to set it automatically
         },
@@ -33,7 +37,7 @@ const Ambulance = () => {
       })
       .catch(function (error) {
         console.log(error);
-        toast.success('Something Went Wrong');
+        toast.error('Something Went Wrong');
       });
   };
 

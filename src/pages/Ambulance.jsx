@@ -13,27 +13,32 @@ const Ambulance = () => {
 
   const submitData = (data) => {
     console.log(data);
-
+  
     const formData = new FormData();
     formData.append("ambulance_picture", data.ambulance_picture[0]);
     formData.append("name", data.name);
     formData.append("location", data.location);
     formData.append("phone_number", data.phone_number);
-
+  
+    // Log FormData entries
+    for (let [key, value] of formData.entries()) {
+      console.log(key, value);
+    }
+  
     axios
-      .post(`${BASE_URL}/create_ambulance`, formData, {
+      .post(`${BASE_URL}api/create_ambulance`, formData, {
         headers: {
-          "Content-Type": "multipart/form-data", // or allow axios to set it automatically
+          "Content-Type": "multipart/form-data",
         },
       })
       .then(function (response) {
         console.log(response);
         toast.success('Added Successfully');
-        reset()
+        reset();
       })
       .catch(function (error) {
         console.log(error);
-        toast.success('Something Went Wrong');
+        toast.error('Something Went Wrong');
       });
   };
 
