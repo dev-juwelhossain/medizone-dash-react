@@ -16,6 +16,7 @@ const Doctors = () => {
     const formData = new FormData();
 
     // Add the fields to the formData object
+    formData.append("doctor_img", data.doctor_img[0]);
     formData.append("name", data.name);
     formData.append("degree", data.degree);
     formData.append("specialized", data.specialized);
@@ -34,10 +35,7 @@ const Doctors = () => {
       console.log(key, value);
     }
 
-    // Assuming data.ambulance_picture or an image exists, you can append that too (if needed)
-    if (data.doctor_img) {
-      formData.append("doctor_img", data.doctor_img[0]);
-    }
+   
 
     axios
       .post(`${BASE_URL}/create_doctor`, formData, {
