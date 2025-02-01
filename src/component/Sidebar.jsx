@@ -26,7 +26,8 @@ const Sidebar = () => {
               to="/dashboard"
               className="menu-link"
               style={({ isActive }) => ({
-                backgroundColor: isActive ? "#21dccc" : "transparent", // Active item background color
+                backgroundColor: isActive ? "#0E9F6E" : "transparent", // Active item background color
+                color: isActive ? "#ffffff" : "#000000", // Active item text color
               })}
             >
               <i className="menu-icon tf-icons bx bx-home-circle"></i>
@@ -38,7 +39,8 @@ const Sidebar = () => {
               to="/doctors"
               className="menu-link"
               style={({ isActive }) => ({
-                backgroundColor: isActive ? "#21dccc" : "transparent", // Active item background color
+                backgroundColor: isActive ? "#0E9F6E" : "transparent", // Active item background color
+                color: isActive ? "#ffffff" : "#000000", // Active item text color
               })}
             >
               <i className="menu-icon tf-icons bx bx-donate-heart"></i>
@@ -50,7 +52,8 @@ const Sidebar = () => {
               to="/singledoc"
               className="menu-link"
               style={({ isActive }) => ({
-                backgroundColor: isActive ? "#21dccc" : "transparent", // Active item background color
+                backgroundColor: isActive ? "#0E9F6E" : "transparent", // Active item background color
+                color: isActive ? "#ffffff" : "#000000", // Active item text color
               })}
             >
               <i className="menu-icon tf-icons bx bx-donate-heart"></i>
@@ -62,7 +65,8 @@ const Sidebar = () => {
               to="/hospital"
               className="menu-link"
               style={({ isActive }) => ({
-                backgroundColor: isActive ? "#21dccc" : "transparent", // Active item background color
+                backgroundColor: isActive ? "#0E9F6E" : "transparent", // Active item background color
+                color: isActive ? "#ffffff" : "#000000", // Active item text color
               })}
             >
               <i className="menu-icon tf-icons bx bx-building-house"></i>
@@ -74,7 +78,8 @@ const Sidebar = () => {
               to="/ambulance"
               className="menu-link"
               style={({ isActive }) => ({
-                backgroundColor: isActive ? "#21dccc" : "transparent", // Active item background color
+                backgroundColor: isActive ? "#0E9F6E" : "transparent", // Active item background color
+                color: isActive ? "#ffffff" : "#000000", // Active item text color
               })}
             >
               <i className="menu-icon tf-icons bx bx-car"></i>
