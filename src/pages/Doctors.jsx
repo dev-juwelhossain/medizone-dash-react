@@ -40,7 +40,7 @@ const Doctors = () => {
     }
 
     axios
-      .post(`${BASE_URL}api/create_doctor`, formData, {
+      .post(`${BASE_URL}/create_doctor`, formData, {
         headers: {
           "Content-Type": "multipart/form-data", // or let axios handle it automatically
         },

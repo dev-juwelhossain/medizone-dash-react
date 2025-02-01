@@ -37,6 +37,10 @@ const Hospital = () => {
         toast.success('Hospital added successfully');
         
       })
+      .catch(function (error) {
+        console.log(error);
+        toast.error("Something Went Wrong");
+      });
       
   };
   
