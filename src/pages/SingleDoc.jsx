@@ -21,7 +21,7 @@ const Ambulance = () => {
     formData.append("s_doc_hospital", data.s_doc_hospital);
     formData.append("s_doc_position", data.s_doc_position);
     formData.append("s_doc_experience", data.s_doc_experience);
-    formData.append("s_doc_phonenumber", data.s_doc_phonenumber);
+    formData.append("s_doc_degree", data.s_doc_degree);
 
    
     axios
@@ -223,7 +223,7 @@ const Ambulance = () => {
                         className="col-sm-2 form-label"
                         htmlFor="basic-icon-default-phone"
                       >
-                        Phone No
+                       Degrees
                       </label>
                       <div className="col-sm-10">
                         <div className="input-group input-group-merge">
@@ -231,17 +231,17 @@ const Ambulance = () => {
                             id="basic-icon-default-phone2"
                             className="input-group-text"
                           >
-                            <i className="bx bx-phone"></i>
+                            <i className="bx bx-user"></i>
                           </span>
                           <input
-                            {...register("s_doc_phonenumber", { required: true })}
+                            {...register("s_doc_degree", { required: true })}
                             type="text"
                             id="basic-icon-default-phone"
                             className="form-control phone-mask"
-                            placeholder="658 799 8941"
-                            aria-label="658 799 8941"
+                            placeholder="degrees"
+                            aria-label="degrees"
                             aria-describedby="basic-icon-default-phone2"
-                            name="s_doc_phonenumber"
+                            name="s_doc_degree"
                           />
                         </div>
                       </div>
