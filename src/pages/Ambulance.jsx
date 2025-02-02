@@ -26,7 +26,7 @@ const Ambulance = () => {
     }
   
     axios
-      .post(`${BASE_URL}api/create_ambulance`, formData, {
+      .post(`${BASE_URL}/create_ambulance`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
