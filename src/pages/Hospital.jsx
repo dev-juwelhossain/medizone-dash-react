@@ -149,7 +149,7 @@ const Hospital = () => {
                           <i className="bx bx-envelope"></i>
                         </span>
                         <input
-                          {...register("email", { required: true })}
+                          {...register("email", { required: false })}
                           type="text"
                           id="basic-icon-default-email"
                           className="form-control"
@@ -184,11 +184,11 @@ const Hospital = () => {
                           id="basic-icon-default-phone2"
                           className="input-group-text"
                         >
-                          <i className="bx bx-phone"></i>
+                          <i className="bx bx-number"></i>
                         </span>
                         <input
                           {...register("phone_number", { required: true })}
-                          type="text"
+                          type="number"
                           id="basic-icon-default-phone"
                           className="form-control phone-mask"
                           placeholder="658 799 8941"
@@ -216,7 +216,7 @@ const Hospital = () => {
                           <i className="bx bx-comment"></i>
                         </span>
                         <textarea
-                          {...register("about_hospital", { required: true })}
+                          {...register("about_hospital", { required: false })}
                           id="basic-icon-default-message"
                           className="form-control"
                           placeholder="Hi, Do you have a moment to talk Joe?"
@@ -244,7 +244,7 @@ const Hospital = () => {
                           <i className="bx bx-comment"></i>
                         </span>
                         <textarea
-                          {...register("services", { required: true })}
+                          {...register("services", { required: false })}
                           id="basic-icon-default-message"
                           className="form-control"
                           placeholder="Hospital's Services"

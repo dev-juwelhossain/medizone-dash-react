@@ -22,6 +22,7 @@ const Ambulance = () => {
     formData.append("s_doc_position", data.s_doc_position);
     formData.append("s_doc_experience", data.s_doc_experience);
     formData.append("s_doc_degree", data.s_doc_degree);
+    formData.append("s_doc_specialized", data.s_doc_specialized);
 
    
     axios
@@ -157,6 +158,34 @@ const Ambulance = () => {
                             aria-label="Type Ambulance Address"
                             aria-describedby="basic-icon-default-company2"
                             name="s_doc_hospital"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="row mb-3">
+                      <label
+                        className="col-sm-2 col-form-label"
+                        htmlFor="basic-icon-default-company"
+                      >
+                        specialized
+                      </label>
+                      <div className="col-sm-10">
+                        <div className="input-group input-group-merge">
+                          <span
+                            id="basic-icon-default-company2"
+                            className="input-group-text"
+                          >
+                            <i className="bx bx-certificate"></i>
+                          </span>
+                          <input
+                            {...register("s_doc_specialized", { required: true })}
+                            type="text"
+                            id="basic-icon-default-company"
+                            className="form-control"
+                            placeholder="Type Ambulance Address"
+                            aria-label="Type Ambulance Address"
+                            aria-describedby="basic-icon-default-company2"
+                            name="s_doc_specialized"
                           />
                         </div>
                       </div>

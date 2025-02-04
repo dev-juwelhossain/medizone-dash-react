@@ -47,7 +47,7 @@ const Sidebar = () => {
               <div>Doctor</div>
             </NavLink>
           </li>
-          <li className="menu-item">
+          {/* <li className="menu-item">
             <NavLink
               to="/singledoc"
               className="menu-link"
@@ -59,7 +59,7 @@ const Sidebar = () => {
               <i className="menu-icon tf-icons bx bx-donate-heart"></i>
               <div>Single Doctor</div>
             </NavLink>
-          </li>
+          </li> */}
           <li className="menu-item">
             <NavLink
               to="/hospital"
