@@ -342,7 +342,7 @@ const Doctors = () => {
                           </span>
                           <input
                             {...register("contact", { required: true })}
-                            type="text"
+                            type="number"
                             id="basic-icon-default-phone"
                             className="form-control phone-mask"
                             placeholder="+880 1799 8941"
