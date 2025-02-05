@@ -370,7 +370,7 @@ const Doctors = () => {
                             <i className="bx bx-message-dots"></i>
                           </span>
                           <textarea
-                            {...register("abount_doctor", { required: true })}
+                            {...register("abount_doctor", { required: false })}
                             id="basic-icon-default-message"
                             className="form-control h-40"
                             placeholder="Write About Doctor"
