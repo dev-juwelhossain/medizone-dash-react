@@ -431,7 +431,7 @@ const Doctors = () => {
                             <i className="bx bx-buildings"></i>
                           </span>
                           <input
-                            {...register("e_hospital", { required: true })}
+                            {...register("e_hospital", { required: false })}
                             type="text"
                             id="basic-icon-default-company"
                             className="form-control"
@@ -448,7 +448,7 @@ const Doctors = () => {
                         className="col-sm-2 col-form-label"
                         htmlFor="basic-icon-default-fullname"
                       >
-                        Degree
+                        Jobs title
                       </label>
                       <div className="col-sm-10">
                         <div className="input-group input-group-merge">
@@ -488,7 +488,7 @@ const Doctors = () => {
                           </span>
                           <input
                             {...register("e_experience_year", {
-                              required: true,
+                              required: false,
                             })}
                             type="text"
                             className="form-control"
