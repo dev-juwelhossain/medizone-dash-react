@@ -35,6 +35,7 @@ const Hospital = () => {
       .then(function (response) {
         console.log(response);
         toast.success('Hospital added successfully');
+        reset()
         
       })
       .catch(function (error) {
