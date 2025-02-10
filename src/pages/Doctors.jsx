@@ -273,7 +273,7 @@ const Doctors = () => {
                         className="col-sm-2 col-form-label"
                         htmlFor="basic-icon-default-email"
                       >
-                        ADDRESS
+                        Chamber ADDRESS
                       </label>
                       <div className="col-sm-10">
                         <div className="input-group input-group-merge">
@@ -285,8 +285,8 @@ const Doctors = () => {
                             type="text"
                             id="basic-icon-default-email"
                             className="form-control"
-                            placeholder="Rangpur Sadar"
-                            aria-label="Rangpur Sadar"
+                            placeholder="chamber address"
+                            aria-label="chamber address"
                             aria-describedby="basic-icon-default-email2"
                             name="address"
                           />
@@ -413,7 +413,7 @@ const Doctors = () => {
                     </div>
 
                     <div className="row mt-5">
-                      <h4>Experiences</h4>
+                      <h4>Job</h4>
                     </div>
                     <div className="row mb-3">
                       <label
